@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://kkh7ou7m01yg"
+path="res://.godot/imported/dog_rig.obj-10369e9593415221289f83107dcc6334.mesh"
+
+[deps]
+
+files=["res://.godot/imported/dog_rig.obj-10369e9593415221289f83107dcc6334.mesh"]
+
+source_file="res://models/dog_rig.obj"
+dest_files=["res://.godot/imported/dog_rig.obj-10369e9593415221289f83107dcc6334.mesh", "res://.godot/imported/dog_rig.obj-10369e9593415221289f83107dcc6334.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

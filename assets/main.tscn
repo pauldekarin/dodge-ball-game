@@ -43,23 +43,13 @@ shader = ExtResource("2_sr132")
 shader_parameter/shadow_color = Color(0.85098, 0.803922, 0.396078, 1)
 shader_parameter/shadow_thickness = 2.0
 
-[node name="Node3D" type="Node3D"]
+[node name="root" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v8qyh")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.335928, 0, -0.941888, 0, 1, 0, 0.941888, 0, 0.335928, -9.605, 1.60595, 4.46854)
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0.000383972, 0, -0.000383972, 1, 0, 0, 0, 1, 0, 0, 0)
-snap = 1e-06
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 6.21729e-12, 0, 6.21729e-12, 1, 0, 0, 0, 1, 0, 0, 0)
-size = Vector3(35.1655, 1, 29.7539)
-metadata/_edit_group_ = true
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26126, 0)
@@ -74,8 +64,13 @@ material_overlay = SubResource("ShaderMaterial_xw123")
 mesh = ExtResource("2_wp22y")
 skeleton = NodePath("../../..")
 
-[node name="rocket" type="CSGCylinder3D" parent="."]
-transform = Transform3D(0.687949, 0, 0.725759, 0, 1, 0, -0.725759, 0, 0.687949, -4.76343, 2.91263, -0.460778)
-radius = 0.20477
-height = 1.05173
+[node name="Rocket" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.252432, 0, 0, 0, 1, -1.84699, 1.74232, -5.23815)
 script = ExtResource("4_44uwe")
+
+[node name="Head" type="CSGCylinder3D" parent="Rocket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2, 2.08165e-12)
+cone = true
+
+[node name="Body" type="CSGCylinder3D" parent="Rocket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00764036, 0)

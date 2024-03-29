@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1vcolsfhq8ul"]
+[gd_scene load_steps=11 format=3 uid="uid://b1vcolsfhq8ul"]
 
 [ext_resource type="Texture2D" uid="uid://crjs6lxmnwqko" path="res://assets/characters/player.png" id="1_hstjl"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="2_sr132"]
 [ext_resource type="ArrayMesh" uid="uid://b1nis3bm8qij7" path="res://assets/characters/player.obj" id="2_wp22y"]
+[ext_resource type="Script" path="res://assets/scripts/Rocket.cs" id="4_44uwe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54d4d"]
 use_debanding = false
@@ -72,3 +73,9 @@ material_override = SubResource("StandardMaterial3D_w2jwh")
 material_overlay = SubResource("ShaderMaterial_xw123")
 mesh = ExtResource("2_wp22y")
 skeleton = NodePath("../../..")
+
+[node name="rocket" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.687949, 0, 0.725759, 0, 1, 0, -0.725759, 0, 0.687949, -4.76343, 2.91263, -0.460778)
+radius = 0.20477
+height = 1.05173
+script = ExtResource("4_44uwe")

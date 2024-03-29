@@ -28,7 +28,8 @@ void fragment() {
 	
 	vec2 depth_data = getDepth(SCREEN_UV, DEPTH_TEXTURE, INV_PROJECTION_MATRIX);
 	float depth = depth_data.x;
-	vec3 color = texture(SCREEN_TEXTURE, SCREEN_UV).rgb;
+	vec4 colorA = vec4(255,255,255,1);
+	vec3 color = colorA.rgb;
 	vec3 c = vec3(0.0);
 	
 	vec2 min_depth_data = depth_data;

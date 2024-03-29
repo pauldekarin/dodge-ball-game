@@ -64,10 +64,11 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26126, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.53331)
 shape = SubResource("CylinderShape3D_yojg5")
 
 [node name="Character" type="MeshInstance3D" parent="Player/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.84161, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.84161, 4.41417)
 material_override = SubResource("StandardMaterial3D_w2jwh")
 material_overlay = SubResource("ShaderMaterial_xw123")
 mesh = ExtResource("2_wp22y")

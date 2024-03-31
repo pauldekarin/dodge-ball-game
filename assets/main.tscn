@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b1vcolsfhq8ul"]
+[gd_scene load_steps=41 format=3 uid="uid://b1vcolsfhq8ul"]
 
 [ext_resource type="Texture2D" uid="uid://crjs6lxmnwqko" path="res://assets/characters/player.png" id="1_hstjl"]
 [ext_resource type="Script" path="res://assets/scripts/Camera3D.cs" id="1_whyca"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b1nis3bm8qij7" path="res://assets/characters/player.obj" id="2_wp22y"]
 [ext_resource type="Script" path="res://assets/scripts/Rocket.cs" id="4_44uwe"]
 [ext_resource type="ArrayMesh" uid="uid://cdr3c03jkrhvg" path="res://models/Toy_Rocket.obj" id="6_7fv1l"]
+[ext_resource type="Script" path="res://assets/scripts/Explosion.cs" id="8_6o8lh"]
 [ext_resource type="Shader" path="res://assets/shaders/post_processing.gdshader" id="8_vo8th"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54d4d"]
@@ -21,13 +22,17 @@ sky = SubResource("Sky_0f058")
 sky_custom_fov = 114.0
 ambient_light_source = 3
 ambient_light_color = Color(0.866667, 0, 0.776471, 1)
-tonemap_mode = 2
+tonemap_mode = 3
+tonemap_exposure = 1.25
+tonemap_white = 0.83
+ssr_enabled = true
+ssr_fade_in = 202.677
+ssr_fade_out = 9.18959
 glow_enabled = true
-glow_levels/3 = 0.0
-glow_levels/7 = 16.7
 glow_normalized = true
-glow_intensity = 0.46
-glow_strength = 1.63
+glow_intensity = 0.97
+glow_strength = 0.99
+glow_bloom = 0.19
 glow_blend_mode = 1
 glow_hdr_scale = 1.66
 glow_hdr_luminance_cap = 187.16
@@ -138,6 +143,52 @@ size = Vector2(2, 2)
 render_priority = 0
 shader = ExtResource("8_vo8th")
 
+[sub_resource type="Curve" id="Curve_p6fbn"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(0.992806, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_frkkx"]
+curve = SubResource("Curve_p6fbn")
+
+[sub_resource type="Gradient" id="Gradient_q0f1c"]
+offsets = PackedFloat32Array(0, 0.422727, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_oe7p5"]
+gradient = SubResource("Gradient_q0f1c")
+
+[sub_resource type="Curve" id="Curve_t5lcq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.992806, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mqvg5"]
+curve = SubResource("Curve_t5lcq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tr8k3"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_curve = SubResource("CurveTexture_frkkx")
+spread = 180.0
+initial_velocity_min = 102.41
+initial_velocity_max = 102.41
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_mqvg5")
+color = Color(0.966651, 0.692778, 0.308907, 1)
+color_ramp = SubResource("GradientTexture1D_oe7p5")
+sub_emitter_mode = 1
+sub_emitter_frequency = 48.38
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbqfn"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_vefb4"]
+material = SubResource("StandardMaterial3D_lbqfn")
+
 [node name="Scene" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -197,3 +248,21 @@ light_volumetric_fog_energy = 0.0
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("QuadMesh_1sw3d")
 surface_material_override/0 = SubResource("ShaderMaterial_1qs0j")
+
+[node name="Explosion" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.150796, 0, 0, 0, 0.156349, 0, 0, 0, 0.156349, 0, 0, 0)
+emitting = false
+amount = 500
+lifetime = 0.86
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_tr8k3")
+draw_pass_1 = SubResource("BoxMesh_vefb4")
+script = ExtResource("8_6o8lh")
+
+[node name="Timer" type="Timer" parent="Explosion"]
+process_callback = 0
+one_shot = true
+
+[connection signal="finished" from="Explosion" to="Explosion" method="_on_finished"]

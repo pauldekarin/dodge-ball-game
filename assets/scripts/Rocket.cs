@@ -5,6 +5,7 @@ using System.Linq;
 
 public partial class Rocket : StaticBody3D
 {
+	GpuParticles3D Explosion;
 	CharacterBody3D Target;
 	MeshInstance3D Mesh;
 	Vector3 axis = Vector3.Left;
@@ -27,6 +28,9 @@ public partial class Rocket : StaticBody3D
 		base._Ready();
 		Target = (CharacterBody3D)GetTree().Root.GetNode("Scene").GetNode("Player");
 		Mesh = (MeshInstance3D)GetTree().Root.GetNode("Scene").GetNode("Rocket").GetNode("Mesh");
+		Explosion = (GpuParticles3D)GetParent().GetNode<GpuParticles3D>("Explosion");
+
+		GD.Print(Explosion);
 		Force = new Vector3(0,.1f,0);
 		Velocity = Force;
 		
@@ -63,6 +67,13 @@ public partial class Rocket : StaticBody3D
 		KinematicCollision3D Collision = MoveAndCollide(Velocity);
 		if(Collision != null){
 			if(Collision.GetCollider().Equals(Target)){
+				GpuParticles3D explosion = (GpuParticles3D)Explosion.Duplicate();
+				
+				explosion.Position = Transform.Origin;
+				explosion.Emitting = true;				
+				explosion.GetNode<Timer>("Timer").Autostart = true;
+				
+				GetParent().AddChild(explosion);
 				_Spawn();
 			}
 			else{

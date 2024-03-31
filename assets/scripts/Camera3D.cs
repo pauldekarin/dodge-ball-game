@@ -11,5 +11,7 @@ public partial class Camera3D : Godot.Camera3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		StaticBody3D Rocket = (StaticBody3D)GetTree().Root.GetNode("Scene").GetNode("Rocket");
+		// LookAt(Rocket.Position);
 	}
 }

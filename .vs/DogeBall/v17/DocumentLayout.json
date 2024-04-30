@@ -1,10 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\\Desktop\\Game\\dodge-ball-game\\",
+  "WorkspaceRootPath": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\\Desktop\\dodge-ball-game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2396F197-B840-416D-8534-73E966DD4F39}|DogeBall.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\\desktop\\game\\dodge-ball-game\\assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2396F197-B840-416D-8534-73E966DD4F39}|DogeBall.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\\desktop\\dodge-ball-game\\assets\\scripts\\lightexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2396F197-B840-416D-8534-73E966DD4F39}|DogeBall.csproj|solutionrelative:assets\\scripts\\lightexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2396F197-B840-416D-8534-73E966DD4F39}|DogeBall.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\\desktop\\dodge-ball-game\\assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2396F197-B840-416D-8534-73E966DD4F39}|DogeBall.csproj|solutionrelative:assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2396F197-B840-416D-8534-73E966DD4F39}|DogeBall.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\\desktop\\dodge-ball-game\\assets\\scripts\\rocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2396F197-B840-416D-8534-73E966DD4F39}|DogeBall.csproj|solutionrelative:assets\\scripts\\rocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Explosion.cs",
-              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\\Desktop\\Game\\dodge-ball-game\\assets\\scripts\\Explosion.cs",
-              "RelativeDocumentMoniker": "assets\\scripts\\Explosion.cs",
-              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\\Desktop\\Game\\dodge-ball-game\\assets\\scripts\\Explosion.cs",
-              "RelativeToolTip": "assets\\scripts\\Explosion.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAACAAAA",
+              "Title": "lightExplosion.cs",
+              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\\Desktop\\dodge-ball-game\\assets\\scripts\\lightExplosion.cs",
+              "RelativeDocumentMoniker": "assets\\scripts\\lightExplosion.cs",
+              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\\Desktop\\dodge-ball-game\\assets\\scripts\\lightExplosion.cs",
+              "RelativeToolTip": "assets\\scripts\\lightExplosion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T07:14:23.898Z",
+              "WhenOpened": "2024-04-04T19:39:12.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Explosion.cs",
+              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\\Desktop\\dodge-ball-game\\assets\\scripts\\Explosion.cs",
+              "RelativeDocumentMoniker": "assets\\scripts\\Explosion.cs",
+              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\\Desktop\\dodge-ball-game\\assets\\scripts\\Explosion.cs",
+              "RelativeToolTip": "assets\\scripts\\Explosion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T19:37:08.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Rocket.cs",
+              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\\Desktop\\dodge-ball-game\\assets\\scripts\\Rocket.cs",
+              "RelativeDocumentMoniker": "assets\\scripts\\Rocket.cs",
+              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\\Desktop\\dodge-ball-game\\assets\\scripts\\Rocket.cs",
+              "RelativeToolTip": "assets\\scripts\\Rocket.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowDMAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T17:30:32.65Z",
               "EditorCaption": ""
             }
           ]

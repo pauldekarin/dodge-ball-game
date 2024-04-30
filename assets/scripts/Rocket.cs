@@ -5,7 +5,7 @@ using System.Linq;
 
 public partial class Rocket : StaticBody3D
 {
-	GpuParticles3D Explosion;
+	GpuParticles3D Explosion, Smoke;
 	CharacterBody3D Target;
 	MeshInstance3D Mesh;
 	Vector3 axis = Vector3.Left;
@@ -30,7 +30,7 @@ public partial class Rocket : StaticBody3D
 		Mesh = (MeshInstance3D)GetTree().Root.GetNode("Scene").GetNode("Rocket").GetNode("Mesh");
 		Explosion = (GpuParticles3D)GetParent().GetNode<GpuParticles3D>("Explosion");
 
-		GD.Print(Explosion);
+        GD.Print(Explosion);
 		Force = new Vector3(0,.1f,0);
 		Velocity = Force;
 		
@@ -68,12 +68,18 @@ public partial class Rocket : StaticBody3D
 		if(Collision != null){
 			if(Collision.GetCollider().Equals(Target)){
 				GpuParticles3D explosion = (GpuParticles3D)Explosion.Duplicate();
-				
-				explosion.Position = Transform.Origin;
+				Smoke = explosion.GetNode<GpuParticles3D>("Smoke");
+                OmniLight3D Light = explosion.GetNode<OmniLight3D>("OmniLight3D");
+
+                explosion.Position = Transform.Origin;
 				explosion.Emitting = true;				
 				explosion.GetNode<Timer>("Timer").Autostart = true;
-				
-				GetParent().AddChild(explosion);
+				Light.LightEnergy = 6.805f;
+
+                Smoke.Position = Transform.Origin;
+                Smoke.Emitting = true;
+
+                GetParent().AddChild(explosion);
 				_Spawn();
 			}
 			else{
